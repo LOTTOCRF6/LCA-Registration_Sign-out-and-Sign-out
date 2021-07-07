@@ -4,56 +4,67 @@ import mysql.connector
 
 root = Tk()
 root.config(bg="Black")
-root.geometry("800x800")
+root.geometry("800x600")
 root.title("Registration")
+
+img = PhotoImage(file="resize-LogoLifeChoices300x80.png")
+canvas = Canvas(root, width=1200, height=600)
+canvas.create_image(0, 0, anchor=NW, image=img)
+canvas.pack()
+
+# Head
+'''lab_name = Label(root, text="LIFE CHOICES ACADEMY ", bg="black", fg="lightblue", font=("Consolas 18 bold"))
+lab_name.place(x=150, y=20)'''
+lab_name = Label(root, text="Please Register and fill in all empty spaces! ", bg="black", fg="lightblue", font=("Consolas 12 bold"))
+lab_name.place(x=70, y=150)
 
 # start of label name and entry
 lab_name = Label(root, text="Name: ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
-lab_name.place(x=60, y=20)
+lab_name.place(x=60, y=200)
 entry_name = Entry(root, bg="lightblue", fg="black")
-entry_name.place(x=200, y=20, width=220, height=30)
+entry_name.place(x=200, y=200, width=220, height=30)
 # end of label name and entry
 
 # start of label Surname and Entry
 lab_surname = Label(root, text="Surname: ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
-lab_surname.place(x=60, y=70)
+lab_surname.place(x=60, y=250)
 entry_surname = Entry(root, bg="lightblue", fg="black")
-entry_surname.place(x=200, y=70, width=220, height=30)
+entry_surname.place(x=200, y=250, width=220, height=30)
 # end of Surname and Entry
 
 # Start of ID number Label and Entry
 lab_id_no = Label(root, text="ID No.: ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
-lab_id_no.place(x=60, y=120)
+lab_id_no.place(x=60, y=300)
 entry_id_no = Entry(root, bg="lightblue", fg="black")
-entry_id_no.place(x=200, y=120, width=220, height=30)
+entry_id_no.place(x=200, y=300, width=220, height=30)
 #  end of id number label and entry
 
 # start of label Phone No and Entry
 lab_phone_no = Label(root, text="Phone No.: ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
-lab_phone_no.place(x=60, y=170)
+lab_phone_no.place(x=60, y=350)
 entry_phone_no = Entry(root, bg="lightblue", fg="black")
-entry_phone_no.place(x=200, y=170, width=220, height=30)
+entry_phone_no.place(x=200, y=350, width=220, height=30)
 # end of Phone No label and Entry
 
 # start of Password label and Entry
 lab_password = Label(root, text="Password: ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
-lab_password.place(x=60, y=220)
+lab_password.place(x=60, y=400)
 entry_password = Entry(root, show="*", bg="lightblue", fg="black")
-entry_password.place(x=200, y=220, width=220, height=30)
+entry_password.place(x=200, y=400, width=220, height=30)
 # end of Password label and Entry
 
 # start of Next of kin Fullname label and Entry
 lab_fullname = Label(root, text="Next of kin Fullname:", bg="black", fg="lightblue", font=("Consolas 15 bold"))
-lab_fullname.place(x=60, y=270)
+lab_fullname.place(x=60, y=450)
 entry_fullname = Entry(root, bg="lightblue", fg="black")
-entry_fullname.place(x=330, y=270, width=220, height=30)
+entry_fullname.place(x=330, y=450, width=220, height=30)
 # end of Next of kin Fullname label and Entry
 
 # start of Next of kin Cell No label and entry
 lab_cell_no = Label(root, text="Next of kin Cell No.:", bg="black", fg="lightblue", font=("Consolas 15 bold"))
-lab_cell_no.place(x=60, y=320)
+lab_cell_no.place(x=60, y=500)
 entry_cell_no = Entry(root, bg="lightblue", fg="black")
-entry_cell_no.place(x=330, y=320, width=220, height=30)
+entry_cell_no.place(x=330, y=500, width=220, height=30)
 # end of Next of kin Cell No label and entry
 
 # functions
@@ -72,7 +83,7 @@ def register():
 
 # button
 register_button = Button(root, text="Register", borderwidth="10", command=register, font=("Consolas 13 bold"), bg="black", fg="lightblue")
-register_button.place(x=390, y=360)
+register_button.place(x=350, y=540)
 
 '''
 mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
