@@ -1,11 +1,15 @@
 from tkinter import *
 import mysql.connector
 from tkinter import messagebox
+from datetime import datetime
 
 root = Tk()
 root.title("My_random_tkinter")
 root.geometry("800x600")
 root.config(bg="Black")
+
+now = datetime.now()
+formatted_data = now.strftime('%Y-%m-%d %H:%M:%s')
 # Heading
 lab_name = Label(root, text="WELCOME TO LIFECHOICES ACADEMY ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
 lab_name.place(x=100, y=20)
@@ -42,14 +46,15 @@ def login():
     xy = mycursor.execute('Select * from Register')
     for i in mycursor:
         if i[1] == entry_name.get() and i[4] == entry_password.get():
-            messagebox.showinfo("Output", "Login")
             mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
                                            database='sql4423138',
                                            auth_plugin='mysql_native_password')
             mycursor = mydb.cursor()
-            sql = "INSERT INTO Logins (Name, Password ) Value(%s, %s)"
-            val = (entry_name.get(), entry_password.get())
+            sql = "INSERT INTO Logins (Name, Password, Login_DateTime ) Value(%s, %s, %s)"
+            val = (entry_name.get(), entry_password.get(), formatted_data)
             mycursor.execute(sql, val)
+            messagebox.showinfo("Output", "Login")
+            mydb.commit()
 
     if i[1] != entry_password.get() or i[0] != entry_id_no.get():
             messagebox.showinfo("Output", "Enter correct information")
@@ -65,8 +70,26 @@ login_btn.place(x=60, y=350)
 
 # clear function
 def logout():
-    entry_name.delete(0, END)
-    entry_password.delete(0, END)
+    mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com', database='sql4423138',
+                                   auth_plugin='mysql_native_password')
+    mycursor = mydb.cursor()
+    xy = mycursor.execute('Select * from Register')
+    for i in mycursor:
+        if i[1] == entry_name.get() and i[4] == entry_password.get():
+            mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
+                                           database='sql4423138',
+                                           auth_plugin='mysql_native_password')
+            mycursor = mydb.cursor()
+            sql = "INSERT INTO Logouts (Name, Password, Logout_DataTime ) Value(%s, %s, %s)"
+            val = (entry_name.get(), entry_password.get(), formatted_data)
+            mycursor.execute(sql, val)
+            messagebox.showinfo("Output", "Successful Logout. See you next time")
+            mydb.commit()
+
+    if i[1] != entry_password.get() or i[0] != entry_id_no.get():
+            messagebox.showinfo("Output", "Enter correct information")
+            entry_password.delete(0, END)
+            entry_id_no.delete(0, END)
 
 
 # logout button
