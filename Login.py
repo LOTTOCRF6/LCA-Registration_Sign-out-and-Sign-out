@@ -80,7 +80,7 @@ def logout():
                                            database='sql4423138',
                                            auth_plugin='mysql_native_password')
             mycursor = mydb.cursor()
-            sql = "INSERT INTO Logouts (Name, Password, Logout_DataTime ) Value(%s, %s, %s)"
+            sql = "INSERT INTO Logouts (Name, Password, Logout_DateTime ) Value(%s, %s, %s)"
             val = (entry_name.get(), entry_password.get(), formatted_data)
             mycursor.execute(sql, val)
             messagebox.showinfo("Output", "Successful Logout. See you next time")
@@ -109,6 +109,18 @@ def register():
 register_button = Button(root, text="Register", borderwidth="10", command=register, font=("Consolas 13 bold"), bg="black",
                      fg="lightblue")
 register_button.place(x=340, y=350)
+
+
+def admin():
+    messagebox.showinfo('Alert', 'Only Administration Team allowed Please!')
+    root.destroy()
+    import Administration
+
+
+# Admin Button
+admin_button = Button(root, text="Admin", borderwidth="10", command=admin, font=("Consolas 13 bold"), bg="black",
+                     fg="lightblue")
+admin_button.place(x=340, y=430)
 
 
 root.mainloop()
