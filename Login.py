@@ -25,16 +25,16 @@ entry_name = Entry(root, bg="lightblue", fg="black")
 entry_name.place(x=250, y=200, width=220, height=30)
 # end of label name
 # start of label password
-lab_id_no = Label(root, text="Enter ID No: ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
-lab_id_no.place(x=60, y=250)
-entry_id_no = Entry(root, bg="lightblue", fg="black")
-entry_id_no.place(x=250, y=250, width=220, height=30)
+lab_password = Label(root, text="Password: ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
+lab_password.place(x=60, y=250)
+entry_password = Entry(root, bg="lightblue", fg="black")
+entry_password.place(x=250, y=250, width=220, height=30)
 # end of password label
 # start of label password
-lab_password = Label(root, text="Password: ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
+'''lab_password = Label(root, text="Password: ", bg="black", fg="lightblue", font=("Consolas 15 bold"))
 lab_password.place(x=60, y=300)
 entry_password = Entry(root, bg="lightblue", fg="black")
-entry_password.place(x=250, y=300, width=220, height=30)
+entry_password.place(x=250, y=300, width=220, height=30)'''
 # end of password label
 
 
@@ -53,13 +53,13 @@ def login():
             sql = "INSERT INTO Logins (Name, Password, Login_DateTime ) Value(%s, %s, %s)"
             val = (entry_name.get(), entry_password.get(), formatted_data)
             mycursor.execute(sql, val)
-            messagebox.showinfo("Output", "Login")
+            messagebox.showinfo("Output", "Thanks for Login. Enjoy you day")
             mydb.commit()
 
-    if i[1] != entry_password.get() or i[0] != entry_id_no.get():
+    if i[1] != entry_name.get() or i[0] != entry_password.get():
             messagebox.showinfo("Output", "Enter correct information")
             entry_password.delete(0, END)
-            entry_id_no.delete(0, END)
+            entry_name.delete(0, END)
 
 
 # login button
@@ -85,11 +85,12 @@ def logout():
             mycursor.execute(sql, val)
             messagebox.showinfo("Output", "Successful Logout. See you next time")
             mydb.commit()
+            entry_name.delete(0, END)
+            entry_password.delete(0, END)
 
-    if i[1] != entry_password.get() or i[0] != entry_id_no.get():
+    if i[1] != entry_name.get() or i[0] != entry_password.get():
             messagebox.showinfo("Output", "Enter correct information")
             entry_password.delete(0, END)
-            entry_id_no.delete(0, END)
 
 
 # logout button
@@ -112,14 +113,32 @@ register_button.place(x=340, y=350)
 
 
 def admin():
-    messagebox.showinfo('Alert', 'Only Administration Team allowed Please!')
-    root.destroy()
-    import Administration
+    messagebox.showwarning('Alert', 'Only Administration Team allowed Please!')
+
+    mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com', database='sql4423138',
+                                   auth_plugin='mysql_native_password')
+    mycursor = mydb.cursor()
+    xy = mycursor.execute('Select * from Admin_Registers')
+
+    found = False
+    for i in mycursor:
+        if i[4] == entry_password.get():
+            found = True
+    if found == True:
+        messagebox.showinfo(title="Accepted", message="Thanks for Login. Enjoy you day.")
+        root.destroy()
+        import Administration
+
+    else:
+        messagebox.showwarning(title="Stop", message="Invalid details / Your are not an admin.")
+        root.destroy()
+    messagebox.showinfo("Output", "Successful Login. Enjoy your time")
+    entry_name.delete(0, END)
+    entry_password.delete(0, END)
 
 
 # Admin Button
-admin_button = Button(root, text="Admin", borderwidth="10", command=admin, font=("Consolas 13 bold"), bg="black",
-                     fg="lightblue")
+admin_button = Button(root, text="Admin", borderwidth="10", command=admin, font=("Consolas 13 bold"), bg="black",fg="lightblue")
 admin_button.place(x=340, y=430)
 
 

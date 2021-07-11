@@ -7,8 +7,22 @@ root = Tk()
 root.title('Administration')
 root.geometry('1200x1200')
 root['bg']='black'
+var = StringVar()
 
 # Registration Treeview and Functions and Button
+update_headig = Label(root, text='Update a field', bg='white', width=25)
+update_headig.place(x=780, y=315)
+people_loged_in = Label(root, text='logged in:')
+people_loged_in.place(x=890, y=10)
+number = Label(root, text='', textvariable=var, bg='white', width=3)
+number.place(x=960,y=10)
+mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
+                               database='sql4423138', auth_plugin='mysql_native_password')
+mycursor = mydb.cursor()
+mycursor.execute('SELECT COUNT(DISTINCT Logins FROM Logins')
+for i in mycursor:
+        var.set(i[0])
+
 
 
 # Registration Function

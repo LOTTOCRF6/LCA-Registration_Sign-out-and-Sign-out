@@ -6,7 +6,7 @@ mycursor = mydb.cursor()
 
 #mycursor.execute("ALTER TABLE Register ADD (Register_DateTime VARCHAR(225) NOT NULL)")
 #mycursor.execute("ALTER TABLE Register DROP COLUMN Register_DateTime")
-#mycursor.execute("DELETE FROM Register WHERE ID_No 4 ")
+#mycursor.execute("DELETE FROM Register WHERE  ")
 #mycursor.execute("SELECT * FROM Register")
 mycursor.execute("DESCRIBE Register")
 #mycursor.execute("TRUNCATE TABLE Register")
