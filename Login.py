@@ -40,14 +40,14 @@ entry_password.place(x=250, y=300, width=220, height=30)'''
 
 # login function
 def login():
-    mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com', database='sql4423138',
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
                                    auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     xy = mycursor.execute('Select * from Register')
     for i in mycursor:
         if i[1] == entry_name.get() and i[4] == entry_password.get():
-            mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                           database='sql4423138',
+            mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                                           database='LCA',
                                            auth_plugin='mysql_native_password')
             mycursor = mydb.cursor()
             sql = "INSERT INTO Logins (Name, Password, Login_DateTime ) Value(%s, %s, %s)"
@@ -70,14 +70,14 @@ login_btn.place(x=60, y=350)
 
 # clear function
 def logout():
-    mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com', database='sql4423138',
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
                                    auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     xy = mycursor.execute('Select * from Register')
     for i in mycursor:
         if i[1] == entry_name.get() and i[4] == entry_password.get():
-            mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                           database='sql4423138',
+            mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                                           database='LCA',
                                            auth_plugin='mysql_native_password')
             mycursor = mydb.cursor()
             sql = "INSERT INTO Logouts (Name, Password, Logout_DateTime ) Value(%s, %s, %s)"
@@ -115,10 +115,10 @@ register_button.place(x=340, y=350)
 def admin():
     messagebox.showwarning('Alert', 'Only Administration Team allowed Please!')
 
-    mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com', database='sql4423138',
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
                                    auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
-    xy = mycursor.execute('Select * from Admin_Registers')
+    xy = mycursor.execute('Select * from Admin_Register')
 
     found = False
     for i in mycursor:

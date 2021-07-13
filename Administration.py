@@ -10,18 +10,18 @@ root['bg']='black'
 var = StringVar()
 
 # Registration Treeview and Functions and Button
-update_headig = Label(root, text='Update a field', bg='white', width=25)
+'''update_headig = Label(root, text='Update a field', bg='white', width=25)
 update_headig.place(x=780, y=315)
 people_loged_in = Label(root, text='logged in:')
 people_loged_in.place(x=890, y=10)
 number = Label(root, text='', textvariable=var, bg='white', width=3)
 number.place(x=960,y=10)
-mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                               database='sql4423138', auth_plugin='mysql_native_password')
+mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+                               auth_plugin='mysql_native_password')
 mycursor = mydb.cursor()
 mycursor.execute('SELECT COUNT(DISTINCT Logins FROM Logins')
 for i in mycursor:
-        var.set(i[0])
+        var.set(i[0])'''
 
 
 
@@ -54,8 +54,8 @@ def registration():
     tv.heading('ID_number', text='ID_number', anchor=CENTER)
     tv.heading('Register_DateTime', text='Register_DateTime', anchor=CENTER)
 
-    mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                   database='sql4423138', auth_plugin='mysql_native_password')
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+                                   auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM Register")
     for dt in mycursor:
@@ -73,8 +73,8 @@ registration_btn.place(x=750, y=650)
 def delete():
     selected = tv.focus()
     values = tv.item(selected, 'values')
-    mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                       database='sql4423138', auth_plugin='mysql_native_password')
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+                                   auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     sql = "DELETE FROM Register WHERE Id_No = %s"
     val = (values[0],)
@@ -106,8 +106,8 @@ def login():
     tv.heading('Password', text='Password', anchor=CENTER)
     tv.heading('Login_DateTime', text='Login_DateTime', anchor=CENTER)
 
-    mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                   database='sql4423138', auth_plugin='mysql_native_password')
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+                                   auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     mydb.commit()
     mycursor.execute("SELECT * FROM Logins")
@@ -139,8 +139,8 @@ def logout():
     tv.heading('Password', text='Password', anchor=CENTER)
     tv.heading('Logout_DateTime', text='Logout_DateTime', anchor=CENTER)
 
-    mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                   database='sql4423138', auth_plugin='mysql_native_password')
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+                                   auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     mydb.commit()
     mycursor.execute("SELECT * FROM Logouts")
@@ -171,8 +171,9 @@ add_btn.place(x=950, y=550)
 # Update record
 def update_record():
     if entry_update.get() == 'Name':
-        mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                       database='sql4423138', auth_plugin='mysql_native_password')
+        mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                                       database='LCA',
+                                       auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
         sql = "UPDATE Register SET Name = %s  WHERE Name = %s "
@@ -181,8 +182,9 @@ def update_record():
         mydb.commit()
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'surname':
-        mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                       database='sql4423138', auth_plugin='mysql_native_password')
+        mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                                       database='LCA',
+                                       auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
         sql = "UPDATE Register SET surname = %s  WHERE surname = %s "
@@ -191,8 +193,9 @@ def update_record():
         mydb.commit()
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'Phone_No':
-        mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                       database='sql4423138', auth_plugin='mysql_native_password')
+        mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                                       database='LCA',
+                                       auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
         sql = "UPDATE Register SET Phone_No = %s  WHERE Phone_No = %s "
@@ -201,8 +204,9 @@ def update_record():
         mydb.commit()
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'Password':
-        mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                       database='sql4423138', auth_plugin='mysql_native_password')
+        mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                                       database='LCA',
+                                       auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
         sql = "UPDATE Register SET Password = %s  WHERE Password = %s "
@@ -211,8 +215,9 @@ def update_record():
         mydb.commit()
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'Next_of_kin_Fullname':
-        mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                       database='sql4423138', auth_plugin='mysql_native_password')
+        mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                                       database='LCA',
+                                       auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
         sql = "UPDATE Register SET Next_of_kin_Fullname = %s  WHERE Next_of_kin_Fullname = %s "
@@ -221,8 +226,9 @@ def update_record():
         mydb.commit()
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'Next_of_kin_Phone_No':
-        mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                       database='sql4423138', auth_plugin='mysql_native_password')
+        mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                                       database='LCA',
+                                       auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
         sql = "UPDATE Register SET Next_of_kin_Phone_No = %s  WHERE Next_of_kin_Phone_No = %s "
@@ -231,8 +237,9 @@ def update_record():
         mydb.commit()
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'ID_number':
-        mydb = mysql.connector.connect(user='sql4423138', password='dwD2bh8UpN', host='sql4.freesqldatabase.com',
-                                       database='sql4423138', auth_plugin='mysql_native_password')
+        mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                                       database='LCA',
+                                       auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
         sql = "UPDATE Register SET ID_number = %s  ID_number = %s "
@@ -262,5 +269,47 @@ entry_into_what_update.place(x=860, y=330, width=220, height=30)
 update_btn = Button(root, text="Update Records", borderwidth="5", command=update_record, font=("Consolas 13 bold"), bg="yellow",
                        fg="black")
 update_btn.place(x=1070, y=470)
+
+def admin_registration():
+    global tv # making my tv to be global so that is can be accessible
+    tv = ttk.Treeview(root, selectmode="browse")
+    tv.grid(row=1, column=1, padx=20, pady=20)
+    tv['columns'] = ('Rank', 'Name', 'Surname', 'Phone_No', 'Password', 'Next_of_kin_fullname', 'Next_of_kin_Cell_No'
+                     , 'ID_number', 'Register_DateTime')
+    tv.column('#0', width=0, stretch=NO)
+    tv.column('Rank', anchor=CENTER, width=80)
+    tv.column('Name', anchor=CENTER, width=100)
+    tv.column('Surname', anchor=CENTER, width=100)
+    tv.column('Phone_No', anchor=CENTER, width=100)
+    tv.column('Password', anchor=CENTER, width=100)
+    tv.column('Next_of_kin_fullname', anchor=CENTER, width=190)
+    tv.column('Next_of_kin_Cell_No', anchor=CENTER, width=190)
+    tv.column('ID_number', anchor=CENTER, width=190)
+    tv.column('Register_DateTime', anchor=CENTER, width=220)
+# tv headings
+    tv.heading('#0', text='', anchor=CENTER)
+    tv.heading('Rank', text='Rank', anchor=CENTER)
+    tv.heading('Name', text='Name', anchor=CENTER)
+    tv.heading('Surname', text='Surname', anchor=CENTER)
+    tv.heading('Phone_No', text='Phone_No', anchor=CENTER)
+    tv.heading('Password', text='Password', anchor=CENTER)
+    tv.heading('Next_of_kin_fullname', text='Next_of_kin_fullname', anchor=CENTER)
+    tv.heading('Next_of_kin_Cell_No', text='Next_of_kin_Cell_No', anchor=CENTER)
+    tv.heading('ID_number', text='ID_number', anchor=CENTER)
+    tv.heading('Register_DateTime', text='Register_DateTime', anchor=CENTER)
+
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+                                   auth_plugin='mysql_native_password')
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM Admin_Register")
+    for dt in mycursor:
+        tv.insert('', 'end', iid=dt[0], text=dt[0],
+                  values=(dt[0], dt[1], dt[2], dt[3], dt[4], dt[5], dt[6], dt[7], dt[8]))
+
+
+# Registration Button
+registration_btn = Button(root, text="Admin List", borderwidth="10", command=admin_registration, font=("Consolas 13 bold"), bg="yellow",
+                       fg="black")
+registration_btn.place(x=1130, y=550)
 
 root.mainloop()
