@@ -1,6 +1,6 @@
 import mysql.connector
 
-mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='mydb',
                                auth_plugin='mysql_native_password')
 mycursor = mydb.cursor()
 
@@ -8,8 +8,8 @@ mycursor = mydb.cursor()
 #mycursor.execute("ALTER TABLE Administration DROP COLUMN Admin_Login_DateTime")
 #mycursor.execute(("DROP TABLE Admin_Registers"))
 #mycursor.execute("DELETE FROM Administration WHERE ID_No 4 ")
-mycursor.execute("SELECT * FROM Admin_Register")
-#mycursor.execute("DESCRIBE Admin_Register")
+#mycursor.execute("SELECT * FROM Admin_Register")
+mycursor.execute("DESCRIBE Admin_Register")
 #mycursor.execute("TRUNCATE TABLE Register")
 #mycursor.execute("CREATE DATABASE LCA ")
 #mycursor.execute("USE LCA")

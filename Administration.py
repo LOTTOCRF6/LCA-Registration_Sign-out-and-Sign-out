@@ -54,7 +54,7 @@ def registration():
     tv.heading('ID_number', text='ID_number', anchor=CENTER)
     tv.heading('Register_DateTime', text='Register_DateTime', anchor=CENTER)
 
-    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='mydb',
                                    auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM Register")
@@ -73,7 +73,7 @@ registration_btn.place(x=750, y=650)
 def delete():
     selected = tv.focus()
     values = tv.item(selected, 'values')
-    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='mydb',
                                    auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     sql = "DELETE FROM Register WHERE Id_No = %s"
@@ -106,7 +106,7 @@ def login():
     tv.heading('Password', text='Password', anchor=CENTER)
     tv.heading('Login_DateTime', text='Login_DateTime', anchor=CENTER)
 
-    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='mydb',
                                    auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     mydb.commit()
@@ -139,7 +139,7 @@ def logout():
     tv.heading('Password', text='Password', anchor=CENTER)
     tv.heading('Logout_DateTime', text='Logout_DateTime', anchor=CENTER)
 
-    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='mydb',
                                    auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     mydb.commit()
@@ -172,7 +172,7 @@ add_btn.place(x=950, y=550)
 def update_record():
     if entry_update.get() == 'Name':
         mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
-                                       database='LCA',
+                                       database='mydb',
                                        auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
@@ -183,7 +183,7 @@ def update_record():
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'surname':
         mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
-                                       database='LCA',
+                                       database='mydb',
                                        auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
@@ -194,7 +194,7 @@ def update_record():
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'Phone_No':
         mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
-                                       database='LCA',
+                                       database='mydb',
                                        auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
@@ -205,7 +205,7 @@ def update_record():
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'Password':
         mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
-                                       database='LCA',
+                                       database='mydb',
                                        auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
@@ -216,7 +216,7 @@ def update_record():
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'Next_of_kin_Fullname':
         mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
-                                       database='LCA',
+                                       database='mydb',
                                        auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
@@ -227,7 +227,7 @@ def update_record():
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'Next_of_kin_Phone_No':
         mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
-                                       database='LCA',
+                                       database='mydb',
                                        auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 
@@ -238,7 +238,7 @@ def update_record():
         messagebox.showinfo('Updated', 'Records Updated! ')
     elif entry_update.get() == 'ID_number':
         mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
-                                       database='LCA',
+                                       database='mydb',
                                        auth_plugin='mysql_native_password')
         mycursor = mydb.cursor()
 

@@ -73,7 +73,7 @@ entry_cell_no.place(x=330, y=500, width=220, height=30)
 # functions
 # Register function
 def register():
-    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='mydb',
                                    auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     sql = "INSERT INTO Register (name,surname,phone_no,password,next_of_kin_Fullname,Next_of_kin_Phone_No, Register_DateTime, ID_number ) Value(%s, %s, %s, %s, %s, %s, %s, %s)"
@@ -92,7 +92,7 @@ register_button.place(x=350, y=540)
 
 # Register function
 def admin_register():
-    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='LCA',
+    mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1', database='mydb',
                                    auth_plugin='mysql_native_password')
     mycursor = mydb.cursor()
     sql = "INSERT INTO Admin_Register (name,surname,phone_no,password,next_of_kin_Fullname,Next_of_kin_Phone_No, Register_DateTime, ID_number ) Value(%s, %s, %s, %s, %s, %s, %s, %s)"
